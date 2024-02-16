@@ -7,8 +7,8 @@ This is a sub package to the klevu-smart-search-M2 repository.
 ---
 <h3>Compatible with:</h3>
 <ul>
-<li>Magento Open Source (CE) `2.3.7-p4`, `2.4.6-p4`</li>
-<li>Magento Commerce (EE) `2.3.7-p4`, `2.4.6-p4`</li>
+<li>Magento Open Source (CE) 2.3.7-p4, 2.4.6-p4</li>
+<li>Magento Commerce (EE) 2.3.7-p4, 2.4.6-p4</li>
 </ul>
 
 If you are running Klevu 3.x on Magento 2.3.0 - 2.3.4 you will need to remove this new package.
