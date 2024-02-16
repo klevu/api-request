@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Klevu\Search\Model\Api\Request" type="Klevu\ApiRequest\Model\Api\Request"/>
+    <preference for="Klevu\Search\Model\Api\Request\Get" type="Klevu\ApiRequest\Model\Api\Request\Get"/>
+    <preference for="Klevu\Search\Model\Api\Request\Post" type="Klevu\ApiRequest\Model\Api\Request\Post"/>
+    <preference for="Klevu\Search\Model\Api\Request\Xml" type="Klevu\ApiRequest\Model\Api\Request\Xml"/>
+
+    <type name="Klevu\ApiRequest\Model\Api\Request">
+        <arguments>
+            <argument name="logger" xsi:type="object">Klevu\Search\Logger\Logger\Search</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Addrecords">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Xml</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Deleterecords">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Xml</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Updaterecords">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Xml</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Adduser">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Post</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Addwebstore">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Post</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Checkuserdetail">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Post</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Debuginfo">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Post</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Features">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Post</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Getplans">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Post</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Gettimezone">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Post</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Getuserdetail">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Post</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Idsearch">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Get</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Producttracking">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Post</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Searchtermtracking">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Post</argument>
+        </arguments>
+    </type>
+
+    <type name="Klevu\Search\Model\Api\Action\Startsession">
+        <arguments>
+            <argument name="requestModel" xsi:type="string">Klevu\ApiRequest\Model\Api\Request\Xml</argument>
+        </arguments>
+    </type>
+
+</config>
