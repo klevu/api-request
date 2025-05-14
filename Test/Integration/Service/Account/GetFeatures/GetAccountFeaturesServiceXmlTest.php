@@ -10,9 +10,8 @@ use Klevu\Search\Api\Service\Account\Model\AccountFeaturesInterface;
 use Klevu\Search\Service\Account\GetFeatures;
 use Klevu\Search\Service\Account\Model\AccountFeatures;
 use Laminas\Http\Client as HttpClient;
-use Laminas\Http\Response as LaminasResponse;
-use Magento\Framework\HTTP\LaminasClient;
-use Magento\Framework\HTTP\LaminasClientFactory;
+use Laminas\Http\ClientFactory as HttpClientFactory;
+use Laminas\Http\Response as HttpResponse;
 use Magento\TestFramework\ObjectManager;
 use PHPUnit\Framework\TestCase;
 
@@ -34,7 +33,7 @@ class GetAccountFeaturesServiceXmlTest extends TestCase
     private $httpClientCurrentEndpoint;
 
     /**
-     * @var LaminasResponse[]
+     * @var HttpResponse[]
      */
     private $httpClientResponseMock = [];
 
@@ -350,18 +349,18 @@ XML
         $this->objectManager = ObjectManager::getInstance();
 
         $this->httpClientResponseMock['https://tiers.klevu.com/uti/getFeaturesAndUpgradeLink'] =
-        $this->getMockBuilder(LaminasResponse::class)
+        $this->getMockBuilder(HttpResponse::class)
             ->disableOriginalConstructor()
             ->setMethods(['getBody'])
             ->getMock();
 
         $this->httpClientResponseMock['https://tiers.klevu.com/uti/getFeatureValues'] =
-            $this->getMockBuilder(LaminasResponse::class)
+            $this->getMockBuilder(HttpResponse::class)
                 ->disableOriginalConstructor()
                 ->setMethods(['getBody'])
                 ->getMock();
 
-        $this->httpClientMock = $this->getMockBuilder(LaminasClient::class)
+        $this->httpClientMock = $this->getMockBuilder(HttpClient::class)
             ->disableOriginalConstructor()
             ->setMethods(['setParameterPost', 'setUri', 'send'])
             ->getMock();
@@ -393,15 +392,15 @@ XML
             ->willReturnCallback(function () {
                 return $this->httpClientResponseMock[$this->httpClientCurrentEndpoint];
             });
-        $this->objectManager->addSharedInstance($this->httpClientMock, LaminasClient::class);
+        $this->objectManager->addSharedInstance($this->httpClientMock, HttpClient::class);
 
-        $laminasClientFactoryMock = $this->getMockBuilder(LaminasClientFactory::class)
+        $laminasClientFactoryMock = $this->getMockBuilder(HttpClientFactory::class)
             ->disableOriginalConstructor()
             ->getMock();
         $laminasClientFactoryMock->method('create')
             ->willReturn($this->httpClientMock);
 
-        $this->objectManager->addSharedInstance($laminasClientFactoryMock, LaminasClientFactory::class);
+        $this->objectManager->addSharedInstance($laminasClientFactoryMock, HttpClientFactory::class);
     }
 
     /**
